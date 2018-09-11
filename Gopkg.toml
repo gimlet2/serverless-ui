@@ -1,0 +1,8 @@
+required = ["github.com/robfig/cron",
+    "github.com/ericchiang/k8s", 
+    "github.com/golang/protobuf/proto", 
+    "golang.org/x/net/http2",
+    "github.com/ghodss/yaml",
+    "github.com/gorilla/mux"
+    ]
+

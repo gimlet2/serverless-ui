@@ -1,0 +1,30 @@
+
+# This file must be used with "source activate" or ". activate"
+
+if [[ -n "${GOENV+1}" ]]; then
+	deactivate
+fi
+
+export GOENV=serverless-ui
+export GOENV_OLDPS1=$PS1
+export GOENV_OLDGOPATH=$GOPATH
+export GOENV_OLDPATH=$PATH
+
+export GOPATH=/home/user/.goenv/serverless-ui
+export PATH="$GOPATH/bin:$PATH"
+export PS1="($(basename $GOPATH))$PS1"
+
+mkdir -p $(dirname $GOPATH/src/github.com/gimlet2/serverless-ui)
+rm -f $GOPATH/src/github.com/gimlet2/serverless-ui
+ln -s /home/user/workspace/serverless-ui $GOPATH/src/github.com/gimlet2/serverless-ui
+cd $GOPATH/src/github.com/gimlet2/serverless-ui
+
+deactivate() {
+	export PS1=$GOENV_OLDPS1
+	export GOPATH=$GOENV_OLDGOPATH
+	export PATH=$GOENV_OLDPATH
+
+	unset GOENV GOENV_OLDPS1 GOENV_OLDPATH GOENV_OLDGOPATH
+	unset -f deactivate
+	cd /home/user/workspace/serverless-ui
+}
