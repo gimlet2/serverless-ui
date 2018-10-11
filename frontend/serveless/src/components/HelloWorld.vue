@@ -10,7 +10,7 @@
 
     <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
       <md-toolbar class="md-transparent" md-elevation="0">
-        <span>Functions</span>
+        <span class="md-subheading">Functions</span>
 
         <div class="md-toolbar-section-end">
           <md-button class="md-icon-button md-dense" @click="toggleMenu">
